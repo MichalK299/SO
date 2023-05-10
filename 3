@@ -1,0 +1,89 @@
+  GNU nano 5.4                          zadanie1
+#!/bin/bash
+function oblicz {
+        local suma=0
+        local iloczyn=1
+        for a in "$@"
+        do
+                suma=$((suma + a))
+                iloczyn=$((iloczyn * a))
+        done
+        echo $suma $iloczyn
+}
+
+wynik=$(oblicz 2 4 6)
+
+echo "wynik: $wynik"
+
+
+
+
+
+
+  GNU nano 5.4                          zadanie2
+#!/bin/bash
+
+opcja=$1
+nazwa=$2
+
+function fun1 {
+        if [ -d $nazwa ]; then
+                rm -r $nazwa
+        else
+                mkdir $nazwa
+        fi
+}
+
+function fun2 {
+        echo $HOME > $nazwa
+}
+
+function fun3 {
+        echo "FUNKCJA 3"
+}
+
+if [ "$opcja" = "1" ]; then
+    funkcja1
+elif [ "$opcja" = "2" ]; then
+    funkcja2
+else [ "$opcja" = "3" ]; then
+    funkcja3
+fi
+
+
+
+zadanie 1.
+
+if [ -f "dane.txt" ] && [ -s "kopia" ] && [ "$a" -eq 5 ] && [ "$(echo OK)" = "OK" ]; then
+    echo "Wszystkie warunki są spełnione."
+else
+    echo "Nie wszystkie warunki są spełnione."
+fi
+
+zadanie 2.
+
+if [ -f "dane.txt" ] || [ -s "kopia" ] || [ "$a" -eq 5 ] || [ "$(echo OK)" = "OK" ]; then
+    echo "Co najmniej jeden z warunków jest spełniony."
+else
+    echo "Żaden z warunków nie jest spełniony."
+fi
+
+zadanie 3.
+
+a=$(echo "/home/jan23/Dane/Projekt_22/Dane/Pliki" | cut -d"D" -f1)
+echo $a
+
+b=$(echo "/home/jan23/Dane/Projekt_22/Dane/Pliki" | rev | cut -d"D" -f1 | rev)
+echo $b
+
+c=$(basename "/home/jan23/Dane/Projekt_22/Dane/Pliki" "/Dane/Pliki")
+echo $c
+
+d=$(dirname "/home/jan23/Dane/Projekt_22/Dane/Pliki/Dane")
+echo $d
+
+echo -n "/home/jan23/Dane/Projekt_22/Dane/Pliki" | wc -c
+
+zadanie 4.
+
+ZAPAS=$(echo $SCIEZKA | cut -d "/" -f 3- | awk -F "Kopia" '{print "Kopia"$2}')
