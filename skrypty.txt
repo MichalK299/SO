@@ -1,0 +1,16 @@
+1.
+find . -type d | wc -l
+find . -type f ! -name ".*" | wc -l
+find . -type f -name ".*" | wc -l
+
+2.
+#!/bin/bash
+
+ps aux > procesy
+
+logins=$(ps aux | awk '{print $1}' | sort | uniq)
+
+for login in $logins; do
+    filename="procesy_$login"
+    ps aux | grep "^$login" > "$filename"
+done
